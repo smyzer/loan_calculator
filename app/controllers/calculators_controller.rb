@@ -1,9 +1,9 @@
 class CalculatorsController < ApplicationController
-	def new
-		render text: 'new'
-	end
+  def new
+    render text: 'new'
+  end
 
-	def calculate
-		render text: 'calculate'
-	end
+  def calculate
+    render text: 'calculate'
+  end
 end
