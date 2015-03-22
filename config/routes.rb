@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root controller: :calculators, action: :new
-  
-  resources :calculators, only: [:new] do
+
+  resource :calculators, only: [:new] do
     get :calculate, on: :collection
   end
 end

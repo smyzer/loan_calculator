@@ -1,9 +1,22 @@
 class CalculatorsController < ApplicationController
   def new
-    render text: 'new'
   end
 
   def calculate
-    render text: 'calculate'
+    @calculator = Calculator::Builder.build(parms_for_calculator)
+    @calculator.calculate
+  rescue Calculator::Base::ValidationError => e
+  	flash.now[:alert] = e.message
+  	render :new
+  end
+
+  private
+
+  def parms_for_calculator
+  	_params = params.require(:calculator).permit(:interest_rate, :amount, :period, :type)
+  	_params.each do |key, value|
+  		_params[key] = value.gsub(',', '.')
+  	end
+  	_params
   end
 end

@@ -1,0 +1,23 @@
+|Calculator
+table
+	thead
+		tr
+			th Month
+			th Credit repayment
+			th Percent repayment
+			th Total
+			th Rest
+	tbody
+		/ TODO add decorator for round of calculation
+		- @calculator.payments.each do |payment|
+			tr
+				td = payment.month
+				td = payment.repayment_credit.round(2)
+				td = payment.repayment_percent.round(2)
+				td = payment.total.round(2)
+				td = payment.rest.round(2)
+		tr
+			td Total
+			td = @calculator.total_repayment_credit.round(2)
+			td = @calculator.total_repayment_percent.round(2)
+			td = @calculator.total_repayment.round(2)

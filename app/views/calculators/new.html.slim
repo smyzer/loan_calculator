@@ -1,0 +1,23 @@
+- if flash[:alert]
+	div
+		b
+			= flash[:alert]
+= form_for :calculator, url: calculate_calculators_path, method: :get do |f|
+	= f.label 'Inerest rate'
+	br
+	= f.text_field :interest_rate, required: true
+	|%
+	br
+	= f.label 'Amount'
+	br
+	= f.text_field :amount, required: true
+	br
+	= f.label 'Type'
+	br
+	= f.select :type, [['Standard', :standard], ['Annuity', :annuity]]
+	br
+	= f.label 'Period(month)'
+	br
+	= f.number_field :period, required: true
+	br
+	= f.submit 'Calculate'
