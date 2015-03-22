@@ -59,7 +59,7 @@ module Calculator
       @total_repayment = payments.map(&:total).sum
     end
 
-    def calculate_payment
+    def calculate_payment(*args)
       raise 'need to implement'
     end
   end
